@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ユメプロ 公式</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  .tabs {
+    display: flex;
+    border-bottom: 2px solid #ccc;
+  }
+  .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-bottom: none;
+    margin-right: 5px;
+  }
+  .tab.active {
+    border: 1px solid #007acc;
+    border-bottom: 2px solid white;
+    background-color: #e0f0ff;
+    font-weight: bold;
+  }
+  .content {
+    border: 1px solid #007acc;
+    padding: 20px;
+    margin-top: -1px;
+  }
+  .content > div {
+    display: none;
+  }
+  .content > div.active {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<h1>🌈ユメプロ❤️</h1>
+
+<div class="tabs">
+  <div class="tab active" data-tab="intro">活動内容</div>
+  <div class="tab" data-tab="gallery">所属ライバー</div>
+  <div class="tab" data-tab="news">お知らせ・イベント</div>
+</div>
+
+<div class="content">
+  <div id="intro" class="active">
+    <h2>〜ユメプロ〜</h2>
+    <h4>〜『夢』を『創る』場所〜</h4>
+    <p>ユメプロの公式ホームページです。</p>
+  </div>
+  <div id="gallery">
+    <h2>〜所属ライバー〜</h2>
+    <h4>〜０期生〜</h4>
+    <p>・白終まつり【はくおまつり】（引退済）</p>
+    <h4>〜1期生〜</h4>
+    <p>・シティリエ・リリイエ</p>
+    <p>・マシュマロ</p>
+    <p>・天辛そら</p>
+    <h4>〜2期生〜</h4>
+    <p>・シティリエ・レレイエ</p>
+    <p></p>
+  </div>
+  <div id="news">
+    <h2>お知らせ・イベント</h2>
+    <p>お知らせはありません</p>
+  </div>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const contents = document.querySelectorAll('.content > div');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // タブのactive切り替え
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // コンテンツの表示切り替え
+      const target = tab.getAttribute('data-tab');
+      contents.forEach(c => {
+        c.id === target ? c.classList.add('active') : c.classList.remove('active');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
